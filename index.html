@@ -1,17 +1,296 @@
-<!DOCTYPE HTML>
-<html>
-         <head>
-                 <title>Steven's Page</title>
-                 <meta name="author" content="Steven Gerstmeyr">
-                 <meta name="editor" content="html-editor phase 5">
-         </head>
-         <body text="#000000" bgcolor="#FFFFFF" link="#FF0000" alink="#FF0000" vlink="#FF0000">
-                 <img src="Bild.jpg" alt="Steven Gerstmeyr" border="0" width="109" height="145">
-                 <h1>Steven Gerstmeyr</h1>
-                 <h2>Date of birth: 08/25/1996</h2>
-                 <p>some more information</p>
-                 <p>some more information</p>
-                 <img src="Unterschrift.jpg" alt="autograph" border="0" width="160" height="66">
-                 <strong>All rights belong to their rightful owner.</strong>
-         </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- PAGE TITLE -->
+    <title>Steven's Homepage</title>
+
+    <!-- META DATA -->
+    <meta name="author" content="Steven Gerstmeyr">
+    <meta name="description" content="Homepage">
+    <meta name="keywords" content="Lifestyle, Business, Fitness">
+
+    <!-- SIZE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS FILES -->
+    <!-- link href="css/portfolioDesktop.css" type="text/css" rel="stylesheet" -->
+    <!--link rel="stylesheet" type="text/css" href="css/general.css"-->
+    <link rel="stylesheet" type="text/css" media="(min-width:1px)" href="css/alldevices.css">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- ICON LIBRARY -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--JQUERY JAVA SCRIPT-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+    <!--PROGRESS BAR JAVA SCRIPT-->
+    <script src="js/progressbar.js" type="text/javascript">
+    </script>
+    <!--MENUBUTTON JAVA SCRIPT-->
+    <script src="js/menubutton.js" type="text/javascript">
+    </script>
+    <!--SIDEBAR JAVA SCRIPT-->
+    <script src="js/sidebar.js" type="text/javascript">
+    </script>
+    <!-- NAV BAR JAVA SCRIPT -->
+    <script src="js/navbar.js" type="text/javascript">
+        var startPos;
+        $(document).ready(function() {
+            window.scrollTo(0, 0);
+            startPos = $("nav").offset().top;
+        });
+        $(document).resize(function() {
+            window.scrollTo(0, 0);
+            startPos = $("nav").offset().top;
+        });
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > startPos) {
+                $("nav").addClass('fixed-navi');
+            } else {
+                if ($("nav").hasClass('fixed-navi')) {
+                    $("nav").removeClass('fixed-navi');
+                }
+            }
+        });
+    </script>
+    <!-- SLIDESHOW -->
+    <script type="text/javascript">
+        $(function() {
+            $('.gallery').each(function() {
+                var $gal = $(this),
+                    $movable = $(".movable", $gal),
+                    $slides = $(">*", $movable),
+                    N = $slides.length,
+                    C = 3,
+                    itv = null;
+
+                function play() {
+                    itv = setInterval(anim, 3500);
+                }
+
+                function stop() {
+                    clearInterval(itv);
+                }
+
+                function anim() {
+                    C = ($(this).is(".prev") ? --C : ++C) < 0 ? N - 1 : C % N;
+                    $movable.css({
+                        transform: "translateX(-" + (C * 100) + "%)"
+                    });
+                }
+                $(".prev, .next", this).on("click", anim);
+                $gal.hover(stop, play);
+                play();
+            });
+        });
+    </script>
+    <!-- NAV BAR JAVA SCRIPT -->
+    <script src="js/socialbar.js" type="text/javascript">
+        var startPos;
+        $(document).ready(function() {
+            window.scrollTo(0, 0);
+            startPos = $("social").offset().top;
+        });
+        $(document).resize(function() {
+            window.scrollTo(0, 0);
+            startPos = $("social").offset().top;
+        });
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > startPos) {
+                $("social").addClass('fixed-navi');
+            } else {
+                if ($("social").hasClass('fixed-navi')) {
+                    $("social").removeClass('fixed-navi');
+                }
+            }
+        });
+    </script>
+    <!--SCROLL JAVA SCRIPT-->
+    <script src="js/scrolltest.js" type="text/javascript">
+        $(function() {
+            $('a[href*=#]').on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 500, 'linear');
+            });
+        });
+    </script>
+    <!--PROGRESS BAR JAVA SCRIPT-->
+    <script src="js/progressbar.js" type="text/javascript">
+        $(document).ready(function() {
+            var getMax = function() {
+                return $(document).height() - $(window).height();
+            }
+            var getValue = function() {
+                return $(window).scrollTop();
+            }
+            if ('max' in document.createElement('progress')) {
+                // Browser supports progress element
+                var progressBar = $('progress');
+                // Set the Max attr for the first time
+                progressBar.attr({
+                    max: getMax()
+                });
+                $(document).on('scroll', function() {
+                    // On scroll only Value attr needs to be calculated
+                    progressBar.attr({
+                        value: getValue()
+                    });
+                });
+                $(window).resize(function() {
+                    // On resize, both Max/Value attr needs to be calculated
+                    progressBar.attr({
+                        max: getMax(),
+                        value: getValue()
+                    });
+                });
+            } else {
+                var progressBar = $('.progress-bar'),
+                    max = getMax(),
+                    value, width;
+                var getWidth = function() {
+                    // Calculate width in percentage
+                    value = getValue();
+                    width = (value / max) * 100;
+                    width = width + '%';
+                    return width;
+                }
+                var setWidth = function() {
+                    progressBar.css({
+                        width: getWidth()
+                    });
+                }
+                $(document).on('scroll', setWidth);
+                $(window).on('resize', function() {
+                    // Need to reset the Max attr
+                    max = getMax();
+                    setWidth();
+                });
+            }
+        });
+        $(document).ready(function() {
+            $('#flat').addClass("active");
+            $('#progressBar').addClass('flat');
+            $('#flat').on('click', function() {
+                $('#progressBar').removeClass().addClass('flat');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+            $('#single').on('click', function() {
+                $('#progressBar').removeClass().addClass('single');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+            $('#multiple').on('click', function() {
+                $('#progressBar').removeClass().addClass('multiple');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+            $('#semantic').on('click', function() {
+                $('#progressBar').removeClass().addClass('semantic');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+                alert('hello');
+            });
+            $(document).on('scroll', function() {
+                maxAttr = $('#progressBar').attr('max');
+                valueAttr = $('#progressBar').attr('value');
+                percentage = (valueAttr / maxAttr) * 100;
+                if (percentage < 49) {
+                    document.styleSheets[0].addRule('.semantic', 'color: red');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: red');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: red');
+                } else if (percentage < 98) {
+                    document.styleSheets[0].addRule('.semantic', 'color:    orange');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: orange');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: orange');
+                } else {
+                    document.styleSheets[0].addRule('.semantic', 'color: green');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: green');
+                    document.styleSheets[0].addRule('.semantic::-moz-   progress-bar', 'background-color: green');
+                }
+            });
+        });
+    </script>
+    <!-- TAB PANEL JAVA SCRIPT-->
+    <script src="js/tabpanels.js" type="text/javascript">
+    </script>
+    <!-- WO HIDE / UNHIDE -->
+    <script src="js/wohide.js" type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <!-- PROGRESS BAR -->
+    <progress value="0" id="progressBar">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+
+    <!-- NAVIGATION -->
+    <nav id="nav">
+        <div class="container">
+            <button class="button" id="brand">
+                <div id="branddiv"></div>
+                <!--<img src="SGLogo/SGLogoOrange.png" alt="">-->
+            </button>
+            <button class="button" id="menubutton">
+                <!--<div id="menubuttondiv"></div>-->
+                <input id="menubuttondiv" type="submit" name="button" value="" onclick="menubutton();" />
+            </button>
+            <button class="button" id="any">darktheme</button>
+            <button class="button" id="any">portfolio</button>
+            <button class="button" id="any">about</button>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <div class="mainbody" id="mainbody">
+        <div id="landingpage">
+            <h1 id="videoh1">Steven Gerstmeyr <br> // Portfolio</h1>
+            <h2 id="videoh2">created by myself</h2>
+            <h2 id="shirtlink">get the shirt!</h2>
+            <div class="arrowcontainer">
+                <a data-scroll href="#box1">
+                    <div class="arrow"></div>
+                </a>
+            </div>
+        </div>
+        <div class="whitebackground">
+            <!-- FOOTER -->
+            <div class="footer">
+                <div id="footertext"> 2023<br> <br>Steven Gerstmeyr</div>
+                <div id="footerbuttons">
+                    <button onclick="window.location.href='www.google.de';" class="fbuttons">home</button>
+                    <button class="fbuttons">about</button>
+                    <button class="fbuttons">contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <h2 id="text_sidebar" class="darkui">Dark UI</h2>
+        <label class="switch">
+            <input id="checkboxui" type="checkbox" onclick="darkUI();">
+            <span id="slider_span" class="slider round"></span>
+        </label>
+        <div class="icons">
+            <a href="www.linkedin.com/stevengerstmeyr" class="fa fa-linkedin"></a>
+            <a href="www.instagram.com/stevengerstmeyr" class="fa fa-instagram"></a>
+            <a href="www.youtube.com/stevengerstmeyr" class="fa fa-youtube"></a>
+        </div>
+    </div>
+</body>
+
 </html>

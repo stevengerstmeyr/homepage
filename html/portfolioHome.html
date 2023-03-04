@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- PAGE TITLE -->
+    <title>Steven Portfolio</title>
+
+    <!-- META DATA -->
+    <meta name="author" content="Steven Gerstmeyr">
+    <meta name="description" content="Portfolio">
+    <meta name="keywords" content="Business, Freelancer, Fitness">
+
+    <!-- CSS FILE -->
+    <link href="../css/portfolioDesktop.css" type="text/css" rel="stylesheet">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- ICON LIBRARY -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--JQUERY JAVA SCRIPT-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+
+    <!--PROGRESS BAR JAVA SCRIPT-->
+    <script src="../js/progressbar.js" type="text/javascript">
+    </script>
+    <!--MENUBUTTON JAVA SCRIPT-->
+    <script src="../js/menubutton.js" type="text/javascript">
+    </script>
+    <!--SIDEBAR JAVA SCRIPT-->
+    <script src="../js/sidebar.js" type="text/javascript">
+    </script>
+    <!-- NAV BAR JAVA SCRIPT -->
+    <script src="../js/navbar.js" type="text/javascript">
+        var startPos;
+        $(document).ready(function() {
+            window.scrollTo(0, 0);
+            startPos = $("nav").offset().top;
+        });
+        $(document).resize(function() {
+            window.scrollTo(0, 0);
+            startPos = $("nav").offset().top;
+        });
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > startPos) {
+                $("nav").addClass('fixed-navi');
+            } else {
+                if ($("nav").hasClass('fixed-navi')) {
+                    $("nav").removeClass('fixed-navi');
+                }
+            }
+        });
+
+    </script>
+    <!-- SLIDESHOW -->
+    <script type="text/javascript">
+        $(function() {
+            $('.gallery').each(function() {
+                var $gal = $(this),
+                    $movable = $(".movable", $gal),
+                    $slides = $(">*", $movable),
+                    N = $slides.length,
+                    C = 3,
+                    itv = null;
+
+                function play() {
+                    itv = setInterval(anim, 3500);
+                }
+
+                function stop() {
+                    clearInterval(itv);
+                }
+
+                function anim() {
+                    C = ($(this).is(".prev") ? --C : ++C) < 0 ? N - 1 : C % N;
+                    $movable.css({
+                        transform: "translateX(-" + (C * 100) + "%)"
+                    });
+                }
+                $(".prev, .next", this).on("click", anim);
+                $gal.hover(stop, play);
+                play();
+            });
+        });
+
+    </script>
+    <!-- NAV BAR JAVA SCRIPT -->
+    <script src="../js/socialbar.js" type="text/javascript">
+        var startPos;
+        $(document).ready(function() {
+            window.scrollTo(0, 0);
+            startPos = $("social").offset().top;
+        });
+        $(document).resize(function() {
+            window.scrollTo(0, 0);
+            startPos = $("social").offset().top;
+        });
+        $(window).scroll(function() {
+            if ($(document).scrollTop() > startPos) {
+                $("social").addClass('fixed-navi');
+            } else {
+                if ($("social").hasClass('fixed-navi')) {
+                    $("social").removeClass('fixed-navi');
+                }
+            }
+        });
+
+    </script>
+    <!--SCROLL JAVA SCRIPT-->
+    <script src="../js/scrolltest.js" type="text/javascript">
+        $(function() {
+            $('a[href*=#]').on('click', function(e) {
+                e.preventDefault();
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 500, 'linear');
+            });
+        });
+
+    </script>
+    <!--PROGRESS BAR JAVA SCRIPT-->
+    <script src="../js/progressbar.js" type="text/javascript">
+        $(document).ready(function() {
+            var getMax = function() {
+                return $(document).height() - $(window).height();
+            }
+            var getValue = function() {
+                return $(window).scrollTop();
+            }
+            if ('max' in document.createElement('progress')) {
+                // Browser supports progress element
+                var progressBar = $('progress');
+                // Set the Max attr for the first time
+                progressBar.attr({
+                    max: getMax()
+                });
+                $(document).on('scroll', function() {
+                    // On scroll only Value attr needs to be calculated
+                    progressBar.attr({
+                        value: getValue()
+                    });
+                });
+                $(window).resize(function() {
+                    // On resize, both Max/Value attr needs to be calculated
+                    progressBar.attr({
+                        max: getMax(),
+                        value: getValue()
+                    });
+                });
+            } else {
+                var progressBar = $('.progress-bar'),
+                    max = getMax(),
+                    value, width;
+                var getWidth = function() {
+                    // Calculate width in percentage
+                    value = getValue();
+                    width = (value / max) * 100;
+                    width = width + '%';
+                    return width;
+                }
+                var setWidth = function() {
+                    progressBar.css({
+                        width: getWidth()
+                    });
+                }
+                $(document).on('scroll', setWidth);
+                $(window).on('resize', function() {
+                    // Need to reset the Max attr
+                    max = getMax();
+                    setWidth();
+                });
+            }
+        });
+        $(document).ready(function() {
+            $('#flat').addClass("active");
+            $('#progressBar').addClass('flat');
+            $('#flat').on('click', function() {
+                $('#progressBar').removeClass().addClass('flat');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+            $('#single').on('click', function() {
+                $('#progressBar').removeClass().addClass('single');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+            $('#multiple').on('click', function() {
+                $('#progressBar').removeClass().addClass('multiple');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+            });
+            $('#semantic').on('click', function() {
+                $('#progressBar').removeClass().addClass('semantic');
+                $('a').removeClass();
+                $(this).addClass('active');
+                $(this).preventDefault();
+                alert('hello');
+            });
+            $(document).on('scroll', function() {
+                maxAttr = $('#progressBar').attr('max');
+                valueAttr = $('#progressBar').attr('value');
+                percentage = (valueAttr / maxAttr) * 100;
+                if (percentage < 49) {
+                    document.styleSheets[0].addRule('.semantic', 'color: red');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: red');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: red');
+                } else if (percentage < 98) {
+                    document.styleSheets[0].addRule('.semantic', 'color:    orange');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: orange');
+                    document.styleSheets[0].addRule('.semantic::-moz-progress-bar', 'background-color: orange');
+                } else {
+                    document.styleSheets[0].addRule('.semantic', 'color: green');
+                    document.styleSheets[0].addRule('.semantic::-webkit-progress-value', 'background-color: green');
+                    document.styleSheets[0].addRule('.semantic::-moz-   progress-bar', 'background-color: green');
+                }
+            });
+        });
+
+    </script>
+    <!-- TAB PANEL JAVA SCRIPT-->
+    <script src="../js/tabpanels.js" type="text/javascript">
+    </script>
+    <!-- WO HIDE / UNHIDE -->
+    <script src="../js/wohide.js" type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <!-- PROGRESS BAR -->
+    <progress value="0" id="progressBar">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+
+    <!-- NAVIGATION -->
+    <nav id="nav">
+        <div class="container">
+            <button class="button" id="brand">
+                <div id="branddiv"></div>
+                <!--<img src="SGLogo/SGLogoOrange.png" alt="">-->
+            </button>
+            <button class="button" id="menubutton">
+                <!--<div id="menubuttondiv"></div>-->
+                <input id="menubuttondiv" type="submit" name="button" value="" onclick="menubutton();" />
+            </button>
+            <button class="button" id="any">darktheme</button>
+            <button class="button" id="any">portfolio</button>
+            <button class="button" id="any">about</button>
+        </div>
+    </nav>
+
+    <!-- TO DO LIST -->
+    <div class="todo">
+        <div class="todoheading">
+            <h1>To Do List</h1>
+        </div>
+        <div class="todolist">
+            <li>nav bar </li>
+            <li>background video </li>
+            <li>CI (gray, orange, white) </li>
+            <li>CV </li>
+            <li>JavaScript (calc, forecast)</li>
+            <li>PHP (Login)</li>
+            <li>Workout Plans </li>
+            <li>pictures gallery</li>
+            <li>youtube</li>
+            <li>contact formula</li>
+            <li>footer and copyright and rights </li>
+        </div>
+    </div>
+    <!-- MAIN -->
+    <div class="mainbody" id="mainbody">
+        <div class="video" id="mainvideo">
+            <h1 id="videoh1">Steven Gerstmeyr // Portfolio</h1>
+            <h2 id="videoh2">www.stevensportfol.io</h2>
+            <!--video autoplay muted loop id="myVideo">
+            <source src="Images/testme.mp4" type="video/mp4">
+        </video>-->
+            <!--<img src="Images/background2.svg" alt="">-->
+        </div>
+        <div class="whitebackground">
+            <div class="container main">
+                <div class="mainbox">
+                    <div class="box" id="box1">
+                        <img src="../resources/images/example1.JPG" alt="">
+                        <div class="markuptext">
+                            <h1>test one</h1>
+                            <a href="">whatever link</a>
+                        </div>
+                    </div>
+                    <div class="box" id="box2">
+                        <img src="../resources/images/example2.JPG" alt="">
+                        <h1>two</h1>
+                    </div>
+                    <div class="box" id="box3">
+                        <img src="../resources/images/example3.JPG" alt="">
+                        <h1>three</h1>
+                    </div>
+                </div>
+                <div class="wodays">
+                    <button onclick="woday1()">Chest & Tri</button>
+                    <div id="woday1">
+                        detailed info for chest n tri
+                    </div>
+                    <button onclick="woday2()">Back & Bi</button>
+                    <div id="woday2">
+                        detailed info for back n bi
+                    </div>
+                    <button onclick="woday3()">Shoulders & Arms</button>
+                    <div id="woday3">
+                        detailed info for shoulders n arms
+                    </div>
+                    <button onclick="woday4()">Legs & Cardio</button>
+                    <div id="woday4">
+                        detailed info for legs n cardio
+                    </div>
+                    <button onclick="woday5()">Push</button>
+                    <div id="woday5">
+                        detailed info for push day
+                    </div>
+                    <button onclick="woday6()">Pull</button>
+                    <div id="woday6">
+                        detailed info for pull day
+                    </div>
+                </div>
+                <section class="woplans">
+                    <p>
+                    dips are missing
+                    <h2>Day 1: PUSH</h2>
+                        4x5 bench
+                        4x12 incline DB press
+                        3x15 incline flys  SS chest finisher
+                        4x8 overhead DB press
+                        3x12 lateral raises
+                        5x10 triceps rope extensions DS
+                        3xmax hanging leg raises
+                        <br>
+                        <h2>Day 2: PULL</h2>
+                        4x8 lat pulldowns
+                        4x10 BB rows
+                        3x12 machine pulldowns
+                        4x12 reverse flys
+                        3x10 t bar rows
+                        5x15 BB curls
+                        3xmax dragon flags
+                        <br>
+                        <h2>Day 3: LEGS</h2>
+                        …
+                        tbd
+                        …
+                        <br>
+                        <h2>Day 4: CHEST & BACK</h2>
+                        4x5 incline bench
+                        4x8 cable rows
+                        3x10 cable flys
+                        3x10 cable flys upper chest
+                        3xmax klimmzüge
+                        3x12 DB rows
+                        <br>
+                        <h2>Day 5: SHOULDERS & ARMS</h2>
+                        4x5 military press
+                        4x10 lateral raises & SS overhead press
+                        3x10 front raises & SS lateral raises
+                        4x10 rear delt raises (& SS shrugs)
+                        5x10 french press & SS ez bar curls
+                        5x10 cable pushdowns & SS cable curls<p>
+                    </p>
+                </section>
+            </div>
+            <!-- FOOTER -->
+
+            <div class="footer">
+                <div id="footertext"> 2019<br> <br>Steven Gerstmeyr</div>
+                <div id="footerbuttons">
+                    <button class="fbuttons">home</button>
+                    <button class="fbuttons">about</button>
+                    <button class="fbuttons">contact</button>
+                    <button class="fbuttons">legal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        <h2 class="darkui">Dark UI</h2>
+        <label class="switch">
+            <input id="checkboxui" type="checkbox" onclick="darkUI();">
+            <span class="slider round"></span>
+        </label>
+        <div class="icons">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-linkedin"></a>
+            <a href="#" class="fa fa-google"></a>
+            <a href="#" class="fa fa-youtube"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </div>
+    </div>
+</body>
+
+</html>

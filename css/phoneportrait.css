@@ -1,0 +1,584 @@
+/*GENERAL*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', thin;
+}
+
+.whitebackground {
+    width: 100%;
+    background: black;
+    position: relative;
+    top: 0px;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    background: black;
+    overflow: hidden;
+}
+
+.button {
+    margin: 5px 5px;
+    border: none;
+    height: 34px;
+    min-width: 80px;
+    text-align: center;
+    /*margin-top: 23px;*/
+    padding: 8px;
+    background: transparent;
+}
+button:focus, input:focus{
+    outline: none!important;
+}
+button:active {
+    box-shadow: none;
+}
+input:active {
+    box-shadow: none;
+}
+
+a {
+    z-index: 1;
+    text-align: center;
+}
+
+.mainbody {
+    position: relative;
+    right: 0px;
+    transition: 0.5s;
+}
+
+.mainbody_sbunhidden {
+    right: 350px;
+}
+
+/*LANDING PAGE*/
+
+#myVideo {
+    position: fixed;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.video {
+    height: 100vh;
+    width: 100%;
+    background-image: url("../resources/images/background2.svg");
+    background-size: cover;
+    transition: 0.5s;
+}
+
+.video:hover {
+    background-image: url("../resources/images/background_dark.svg");
+    transition: 0.5s;
+    color: #FFFFFF;
+}
+
+.video:hover > h1 {
+    color: #FFFFFF;
+    transition: 0.5s;
+}
+
+.video:hover > h2 {
+    color: #FF4319;
+    transition: 0.5s;
+}
+
+.video h1 {
+    color: #373737;
+    font-size: 24px;
+    left: 50%;
+    /*margin: auto auto;*/
+    position: relative;
+    top: 60vh;
+    transition: 0.5s;
+}
+
+.video h2 {
+    color: #373737;
+    font-size: 20px;
+    left: 53%;
+    margin: auto auto;
+    position: relative;
+    top: 61vh;
+    transition: 0.5s;
+}
+
+.video li {
+    color: #373737;
+    font-size: 16px;
+    left: 100px;
+    margin: auto auto;
+    position: relative;
+    top: 62vh;
+}
+
+.video img {
+    height: 100vh;
+}
+
+/*TO DO LIST*/
+
+.todo {
+    background: #373737;
+    position: fixed;
+    width: 600px;
+    height: 400px;
+    color: #FFFFFF;
+    /*margin: -200px -300px;*/
+    z-index: 5;
+    opacity: 0;
+    right: 0%;
+    top: 60px;
+}
+
+.todo h1 {
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+    top: 30px;
+}
+
+.todo li {
+    max-width: 300px;
+    margin-left: 150px;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.todoheading {
+    background: ;
+    height: 80px;
+    text-transform: uppercase;
+}
+
+.todolist {
+    position: relative;
+    background: ;
+    margin: auto auto;
+    max-height: 320px;
+    text-transform: lowercase;
+}
+
+/*PROGRESS BAR*/
+
+progress {
+    z-index: 5 !important;
+    /* Positioning */
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    /* Dimensions */
+    width: 100%;
+    height: .1em;
+
+    /* Reset the apperance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Get rid of the default border in Firefox/Opera. */
+    border: none;
+
+    /* For Firefox/IE10+ */
+    background-color: transparent;
+
+    /* For IE10+, color of the progress bar */
+    color: #373737;
+}
+
+progress::-webkit-progress-bar {
+    background-color: transparent;
+}
+
+.flat::-webkit-progress-value {
+    background-color: #373737;
+}
+
+.flat::-moz-progress-bar {
+    background-color: #373737;
+}
+
+.single::-webkit-progress-value {
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(left, transparent, red);
+}
+
+.single::-moz-progress-bar {
+    background-color: transparent;
+    background-image: -moz-linear-gradient(left, transparent, red);
+}
+
+.multiple::-webkit-progress-value {
+    background-image: -webkit-linear-gradient(-45deg,
+            transparent 33%, rgba(0, 0, 0, .1) 33%,
+            rgba(0, 0, 0, .1) 66%, transparent 66%),
+        -webkit-linear-gradient(left, green, red);
+}
+
+.multiple::-moz-progress-bar {
+    background-image: -moz-linear-gradient(-45deg,
+            transparent 33%, rgba(0, 0, 0, .1) 33%,
+            rgba(0, 0, 0, .1) 66%, transparent 66%),
+        -moz-linear-gradient(left, green, red);
+}
+
+.progress-container {
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: .125em;
+    display: block;
+}
+
+.progress-bar {
+    background-color: #373737;
+    width: 50%;
+    display: block;
+    height: inherit;
+}
+
+/*NAVIGATION BAR*/
+
+nav {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    z-index: 3;
+    background-color: #FFFFFF;
+    border-bottom: 100px solid red;
+    opacity: 1.0;
+    transition: 0.5s;
+}
+
+nav .button {
+    color: #373737;
+    /*background-color: #373737;*/
+    font-size: 16px;
+    margin-top: 13px;
+    transition: 0.2s;
+}
+
+nav .button:hover {
+    color: #FF4319;
+    /*border: 1px solid #FF4319;*/
+    /*box-shadow: 0px 0px 10px #FF4319;*/
+    transition: 0.2s;
+}
+
+nav .container {
+    /*background-color: #373737;*/
+    width: 100%;
+}
+
+nav #any {
+    right: 350px;
+    float: right;
+}
+
+#branddiv {
+    position:absolute;
+    width: 36px;
+    height: 36px;
+    float: left;
+    background: url("../resources/SGLogo/SGLogoBlack.png");
+    background-size: cover;
+    transition: 0.2s;
+    margin-top: -18px;
+    margin-left: 32px;
+    left: 0px;
+    transition: 0.5s;
+}
+
+#branddiv:hover {
+    width: 36px;
+    height: 36px;
+    float: left;
+    background: url("../resources/SGLogo/SGLogoOrange.png");
+    background-size: cover;
+    transition: 0.2s;
+    margin-top: -18px;
+    margin-left: 32px;
+}
+
+#menubutton {
+    float: right;
+}
+
+#menubuttondiv {
+    width: 36px;
+    height: 36px;
+    background: url("../resources/images/menuButtonBlack.gif");
+    background-size: cover;
+    transition: 0.2s;
+    margin-top: -8px;
+    margin-left: 14px;
+
+}
+nav input {
+    border: none;
+}
+#menubuttondiv:hover {
+    width: 36px;
+    height: 36px;
+    background: url("../resources/images/menuButtonOrange.gif");
+    background-size: cover;
+    transition: 0.2s;
+    margin-top: -8px;
+    margin-left: 14px;
+}
+
+
+/*MAIN BODY*/
+
+.main {
+    position: relative;
+    /*margin-top: 100vh;*/
+    height: 2500px;
+    background: ;
+    box-shadow: 0px 5px 5px 5px #E1e1e1;
+    overflow: hidden;
+}
+
+.mainbox {
+    width: 700px;
+    height: auto;
+    background: ;
+    margin: auto;
+    padding-top: 0px;
+    overflow: hidden;
+}
+
+.box {
+    margin: 50px auto;
+    width: 700px;
+    height: 500px;
+}
+
+.box h1 {
+    text-align: center;
+    margin-top: -0px;
+    color: #9b9b9b;
+    -webkit-transition: 0.2s;
+}
+
+.markuptext {
+    position: relative;
+    z-index: 2;
+}
+
+.box img {
+    width: 100%;
+    max-height: 500px;
+    -webkit-transition: 0.2s;
+}
+
+.box:hover.markuptext {
+    z-index: 3 !important;
+    margin-top: -250px;
+    color: black;
+    -webkit-transition: 0.2s;
+}
+
+.box:hover.box img {
+    opacity: 0.5;
+    -webkit-transition: 0.2s;
+}
+
+/*SIDE BAR*/
+
+.sidebar {
+    position: fixed;
+    background: #373737;
+    width: 350px;
+    height: 100vh;
+    top: 0;
+    right: -350px;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.sidebar_sbunhidden {
+    position: fixed;
+    background: #373737;
+    width: 350px;
+    height: 100vh;
+    top: 0;
+    right: 0px;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.darkui {
+    color: white;
+    width: 100px;
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    margin-left: -50px;
+    text-align: center;
+}
+
+/*TOGGLE SWITCH */
+/* The switch - the box around the slider */
+.switch {
+    position: absolute;
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    left: 50%;
+    margin-left: -24px;
+    bottom: 20%;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: RGBa(255, 255, 255, 0.7);
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #FFFFFF;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+input:checked + .slider {
+    background-color: RGBa(255, 255, 255, 0.3);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px RGBa(55, 55, 55, 0.8);
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.icons {
+    position: absolute;
+    background: ;
+    left: 50%;
+    width: 243px;
+    margin-left: -121px;
+    bottom: 5%;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 40px;
+    width: 15px;
+    height: 15px;
+    margin: 0px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    background: #373737;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    transition: 0.3s;
+}
+
+.fa:hover {
+    color: #373737;
+    background: #FFFFFF;
+    transition: 0.3s;
+}
+
+/*WO Plan*/
+.wodays button{
+    font-size: 14px;
+    margin: auto auto;
+    display: block;
+    margin-bottom: 10px;
+}
+.wodays div{
+    margin: auto auto;
+    margin-bottom: 10px;
+    display: none;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+
+/*FOOTER*/
+
+.footer {
+    color: #9b9b9b;
+    height: 250px;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+#footertext {
+    width: 500px;
+    padding-top: 50px;
+    margin: auto;
+}
+
+#footerbuttons {
+    margin-top: 50px;
+    background: none;
+}
+
+.fbuttons {
+    color: #9b9b9b;
+    background: none;
+    font-size: 1em;
+    margin: 0px 40px;
+    height: 34px;
+    width: 100px;
+    text-align: center;
+    margin-top: ;
+    border: none;
+    transition: 0.2s;
+}
+
+.fbuttons:hover {
+    /*color: #FF4319;*/
+    /*border: 1px solid #FF4319;*/
+    box-shadow: 0px 0px 20px 0px #9b9b9b;
+    transition: 0.2s;
+    color: #FF4319;
+}

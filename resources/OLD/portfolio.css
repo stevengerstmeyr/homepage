@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', thin;
+}
+
+#myVideo {
+    position: fixed;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.video {
+    height: 100vh;
+    width: 100%;
+    background-image: url(Images/background2.svg);
+    background-size: cover;
+    transition: 1s;
+}
+
+.video:hover {
+    background-image: url(Images/background_dark.svg);
+    transition: 1s;
+    color: #FFFFFF
+}
+
+.video:hover > h1 {
+    color: #FFFFFF;
+    transition: 1s;
+}
+
+.video:hover > h2 {
+    color: #FF4319;
+    transition: 1s;
+}
+.video h1 {
+    color: #373737;
+    font-size: 24px;
+    left: 50%;
+    /*margin: auto auto;*/
+    position: relative;
+    top: 60vh;
+    transition: 1s;
+}
+
+.video h2 {
+    color: #373737;
+    font-size: 20px;
+    left: 53%;
+    margin: auto auto;
+    position: relative;
+    top: 61vh;
+    transition: 1s;
+}
+
+.video li {
+    color: #373737;
+    font-size: 16px;
+    left: 100px;
+    margin: auto auto;
+    position: relative;
+    top: 62vh;
+}
+
+.video img{
+    height: 100vh;
+}
+
+.todo {
+    background: #373737;
+    position: fixed;
+    width: 600px;
+    height: 400px;
+    color: #FFFFFF;
+    /*margin: -200px -300px;*/
+    z-index: 5;
+    opacity: 0;
+    right: 0%;
+    top: 60px;
+}
+
+.todo h1 {
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+    top: 30px;
+}
+
+.todo li {
+    max-width: 300px;
+    margin-left: 150px;
+    margin-top: 5px;
+    font-size: 12px;
+}
+
+.todoheading {
+    background: ;
+    height: 80px;
+    text-transform: uppercase;
+}
+
+.todolist {
+    position: relative;
+    background: ;
+    margin: auto auto;
+    max-height: 320px;
+    text-transform: lowercase;
+}
+
+.whitebackground {
+    width: 100%;
+    background: white;
+    position: relative;
+    top: 0px;
+}
+
+.container {
+    width: 800px;
+    margin: auto;
+    background: white;
+    overflow: hidden;
+}
+
+.button {
+    margin: 5px 5px;
+    border: none;
+    height: 34px;
+    min-width: 80px;
+    text-align: center;
+    /*margin-top: 23px;*/
+    padding: 8px
+}
+
+button:active {
+    box-shadow: none;
+}
+
+a {
+    z-index: 1;
+    text-align: center;
+}
+
+/*PROGRESS BAR*/
+
+progress {
+    z-index: 10!important;
+    /* Positioning */
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    /* Dimensions */
+    width: 100%;
+    height: .075em;
+
+    /* Reset the apperance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Get rid of the default border in Firefox/Opera. */
+    border: none;
+
+    /* For Firefox/IE10+ */
+    background-color: transparent;
+
+    /* For IE10+, color of the progress bar */
+    color: r#373737;
+}
+
+progress::-webkit-progress-bar {
+    background-color: transparent;
+}
+
+.flat::-webkit-progress-value {
+    background-color: #373737;
+}
+
+.flat::-moz-progress-bar {
+    background-color: #373737;
+}
+
+.single::-webkit-progress-value {
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(left, transparent, red);
+}
+
+.single::-moz-progress-bar {
+    background-color: transparent;
+    background-image: -moz-linear-gradient(left, transparent, red);
+}
+
+.multiple::-webkit-progress-value {
+    background-image: -webkit-linear-gradient(-45deg,
+        transparent 33%, rgba(0, 0, 0, .1) 33%,
+        rgba(0, 0, 0, .1) 66%, transparent 66%),
+        -webkit-linear-gradient(left, green, red);
+}
+
+.multiple::-moz-progress-bar {
+    background-image: -moz-linear-gradient(-45deg,
+        transparent 33%, rgba(0, 0, 0, .1) 33%,
+        rgba(0, 0, 0, .1) 66%, transparent 66%),
+        -moz-linear-gradient(left, green, red);
+}
+
+.progress-container {
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: .125em;
+    display: block;
+}
+
+.progress-bar {
+    background-color: #373737;
+    width: 50%;
+    display: block;
+    height: inherit;
+}
+
+/*NAVIGATION BAR*/
+
+nav {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 60px;
+    z-index: 3;
+    background-color: #FFFFFF;
+    /*border-bottom: 1px solid #FFFFFF;*/
+    opacity: 1.0;
+}
+
+nav .button {
+    color: #373737;
+    /*background-color: #373737;*/
+    font-size: 16px;
+    margin-top: 13px;
+    transition: 0.2s;
+}
+
+nav .button:hover {
+    color: #FF4319;
+    /*border: 1px solid #FF4319;*/
+    /*box-shadow: 0px 0px 10px #FF4319;*/
+    transition: 0.2s;
+}
+
+nav .container {
+    /*background-color: #373737;*/
+}
+
+#branddiv:hover {
+    width: 36px;
+    height: 36px;
+    float: left;
+    background: url('SGLogo/SGLogoOrange.png');
+    background-size: cover;
+    transition: 0.2s;
+    margin-top: -8px;
+    margin-left: 14px;
+}
+
+nav #branddiv {
+    width: 36px;
+    height: 36px;
+    float: left;
+    background: url('SGLogo/SGLogoBlack.png');
+    background-size: cover;
+    transition: 0.2s;
+    margin-top: -8px;
+        margin-left: 14px;
+
+}
+nav #portfolio,
+#about {
+    float: right;
+}
+
+.main {
+    position: relative;
+    /*margin-top: 100vh;*/
+    height: 2500px;
+    background: ;
+    box-shadow: 0px 5px 5px 5px #E1e1e1;
+    overflow: hidden;
+}
+
+.mainbox {
+    width: 700px;
+    height: auto;
+    background: ;
+    margin: auto;
+    padding-top: 0px;
+    overflow: hidden;
+}
+
+.box {
+    margin: 50px auto;
+    width: 700px;
+    height: 500px;
+}
+
+.box h1 {
+    text-align: center;
+    margin-top: -0px;
+    color: #9b9b9b;
+    -webkit-transition: 0.5s;
+}
+
+.markuptext {
+    position: relative;
+    z-index: 2;
+}
+
+.box img {
+    width: 100%;
+    max-height: 500px;
+    -webkit-transition: 0.3s;
+}
+
+.box:hover.markuptext {
+    z-index: 3 !important;
+    margin-top: -250px;
+    color: black;
+    -webkit-transition: 0.3s;
+}
+
+.box:hover.box img {
+    opacity: 0.5;
+    -webkit-transition: 0.3s;
+}
+
+
+
+.footer {
+    color: #9b9b9b;
+    height: 250px;
+    text-align: center;
+    text-transform: lowercase;
+}
+
+#footertext {
+    width: 500px;
+    padding-top: 50px;
+    margin: auto;
+}
+
+#footerbuttons {
+    margin-top: 50px;
+}
+
+.fbuttons {
+    color: #9b9b9b;
+    font-size: 1em;
+    margin: 0px 40px;
+    height: 34px;
+    width: 100px;
+    text-align: center;
+    margin-top: ;
+    border: none;
+    transition: 0.2s;
+}
+
+.fbuttons:hover {
+    /*color: #FF4319;*/
+    /*border: 1px solid #FF4319;*/
+    box-shadow: 0px 0px 20px 0px #FF4319;
+    transition: 0.2s;
+}
